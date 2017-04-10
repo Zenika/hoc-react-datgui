@@ -31,6 +31,7 @@ class App extends Component {
       <div>
         <input type="text" onChange={this.handleChange} />
         <NewComp {...this.state} />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br />
         <NewComp2 name="Benjamin" />
       </div>
     )
