@@ -1,0 +1,77 @@
+{
+  "name": "hoc-react-datgui",
+  "version": "0.1.0",
+  "main": "build/withDatGui.js",
+  "author": "Benjamin Petetot <bpetetot@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^15.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2017": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "cross-env": "^3.2.4",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
+  },
+  "scripts": {
+    "lint": "find src -iname \"*.jsx\" -exec eslint {} +; find src -iname \"*.js\" -exec eslint {} +;",
+    "build": "cross-env BABEL_ENV=cjs babel --ignore \"*.spec.js\" ./src/ --out-dir build",
+    "test": "echo \"no tests\""
+  },
+  "keywords": [
+    "react",
+    "datgui",
+    "hoc"
+  ],
+  "babel": {
+    "presets": [
+      "es2017",
+      "es2015",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "react-docgen"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "airbnb"
+    ],
+    "rules": {
+      "semi": [
+        2,
+        "never"
+      ],
+      "arrow-body-style": 0,
+      "import/no-named-as-default": 0,
+      "import/prefer-default-export": 0,
+      "import/no-unresolved": 0,
+      "react/forbid-prop-types": 0,
+      "no-unused-expressions": [
+        2,
+        {
+          "allowShortCircuit": true
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "babel-plugin-react-docgen": "^1.4.2",
+    "dat.gui": "dataarts/dat.gui",
+    "react-docgen": "^2.13.0",
+    "lodash": "^4.17.4"
+  }
+}
