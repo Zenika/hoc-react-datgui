@@ -1,8 +1,9 @@
 {
   "name": "hoc-react-datgui",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "HOC adding a dat.GUI plugged to React.Component props",
   "main": "build/index.js",
-  "author": "Benjamin Petetot <bpetetot@gmail.com>",
+  "author": "Benjamin Petetot <benjamin.petetot@zenika.com>",
   "license": "MIT",
   "peerDependencies": {
     "react": "^15.3.0"
@@ -29,6 +30,14 @@
     "build": "cross-env BABEL_ENV=cjs babel --ignore \"*.spec.js\" ./src/ --out-dir build",
     "test": "echo \"no tests\""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zenika/hoc-react-datgui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zenika/hoc-react-datgui/issues"
+  },
+  "homepage": "https://github.com/Zenika/hoc-react-datgui#readme",
   "keywords": [
     "react",
     "datgui",
