@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import forOwn from 'lodash/forOwn'
 import dat from 'dat.gui/build/dat.gui'
 
-import { mapModelToData, mapAllDataToState, mapDataToState } from './utils'
+import { getDisplayName, mapModelToData, mapAllDataToState, mapDataToState } from './utils'
 
-const getDisplayName = c => c.displayName || c.name || 'Component'
-
-const withDatGui = (WrappedComponent, model = {}) =>
+export default (WrappedComponent, model = {}) =>
   class extends Component {
     static displayName = `DatGui(${getDisplayName(WrappedComponent)})`;
 
@@ -81,5 +79,3 @@ const withDatGui = (WrappedComponent, model = {}) =>
       )
     };
   }
-
-export default withDatGui

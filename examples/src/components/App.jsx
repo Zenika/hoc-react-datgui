@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import withDatGui from 'hoc-react-datgui'
+import { withDatGui, withDatGuiFromProps } from 'hoc-react-datgui'
 
 import MyComponent from './MyComponent'
 
@@ -25,10 +25,13 @@ class App extends Component {
       color: { type: 'color' },
     })
 
+    const NewComp2 = withDatGuiFromProps(MyComponent)
+
     return (
       <div>
         <input type="text" onChange={this.handleChange} />
         <NewComp {...this.state} />
+        <NewComp2 name="Benjamin" />
       </div>
     )
   }

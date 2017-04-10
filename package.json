@@ -1,7 +1,7 @@
 {
   "name": "hoc-react-datgui",
   "version": "0.1.0",
-  "main": "build/withDatGui.js",
+  "main": "build/index.js",
   "author": "Benjamin Petetot <bpetetot@gmail.com>",
   "license": "MIT",
   "peerDependencies": {

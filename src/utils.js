@@ -1,5 +1,16 @@
 import mapValues from 'lodash/mapValues'
 
+export const getDisplayName = c => c.displayName || c.name || 'Component'
+
+export const mapPropsToModel = (props) => {
+  return mapValues(props, (value) => {
+    if (value !== undefined) {
+      return { type: typeof value, defaultValue: value }
+    }
+    return { type: 'string', defaultValue: '' }
+  })
+}
+
 export const mapModelToData = (model, props) => {
   return mapValues(model, (value, prop) => {
     const { type, defaultValue } = value
