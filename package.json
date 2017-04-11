@@ -1,6 +1,6 @@
 {
   "name": "hoc-react-datgui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HOC adding a dat.GUI plugged to React.Component props",
   "main": "build/index.js",
   "author": "Benjamin Petetot <benjamin.petetot@zenika.com>",
@@ -28,6 +28,7 @@
   "scripts": {
     "lint": "find src -iname \"*.jsx\" -exec eslint {} +; find src -iname \"*.js\" -exec eslint {} +;",
     "build": "cross-env BABEL_ENV=cjs babel --ignore \"*.spec.js\" ./src/ --out-dir build",
+    "watch": "cross-env BABEL_ENV=cjs babel --ignore \"*.spec.js\" ./src/ --out-dir build --watch",
     "test": "echo \"no tests\""
   },
   "repository": {
@@ -49,9 +50,6 @@
       "es2015",
       "react",
       "stage-0"
-    ],
-    "plugins": [
-      "react-docgen"
     ]
   },
   "eslintConfig": {
@@ -78,9 +76,7 @@
     }
   },
   "dependencies": {
-    "babel-plugin-react-docgen": "^1.4.2",
     "dat.gui": "dataarts/dat.gui",
-    "react-docgen": "^2.13.0",
     "lodash": "^4.17.4"
   }
 }

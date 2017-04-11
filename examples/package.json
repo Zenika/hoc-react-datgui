@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "start": "set NODE_ENV=development && webpack-dev-server --inline --hot --port=3000 --history-api-fallback",
+    "start": "set NODE_ENV=development && webpack-dev-server --inline --port=3000 --history-api-fallback",
     "build": "NODE_ENV=production webpack --define process.env.NODE_ENV='\"production\"' -p ",
     "lint": "eslint src --ext=jsx --ext=js -v --no-exit {} +",
     "publish": "npm run build && node publish"
@@ -34,7 +34,7 @@
     "webpack-dev-server": "~1.12.1"
   },
   "dependencies": {
-    "hoc-react-datgui": "file:../",
+    "hoc-react-datgui": "^0.0.1",
     "react": "15.3.0",
     "react-dom": "15.3.0"
   },

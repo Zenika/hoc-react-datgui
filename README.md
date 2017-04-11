@@ -1,6 +1,6 @@
 ## hoc-react-datgui
 
-> HOC adding a `dat.GUI` plugged to `React.Component` props.
+> HOC adding `dat.GUI` plugged to `React.Component` props.
 
 _*Library currently in development*_
 
@@ -8,9 +8,11 @@ _*Library currently in development*_
 
 `dat.GUI` is a lightweight graphical user interface for changing variables in JavaScript. Written by https://github.com/dataarts/
 
-See some examples at http://workshop.chromeexperiments.com/examples/gui.
-
 ### Getting started
+
+```
+npm install hoc-react-datgui
+```
 
 #### withDatGui(Component, model)
 
