@@ -14,6 +14,10 @@ var _forOwn = require('lodash/forOwn');
 
 var _forOwn2 = _interopRequireDefault(_forOwn);
 
+var _isEmpty = require('lodash/isEmpty');
+
+var _isEmpty2 = _interopRequireDefault(_isEmpty);
+
 var _dat = require('dat.gui/build/dat.gui');
 
 var _dat2 = _interopRequireDefault(_dat);
@@ -41,6 +45,10 @@ exports.default = function (WrappedComponent) {
       _classCallCheck(this, _class);
 
       var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+
+      _this.hasData = function () {
+        return !(0, _isEmpty2.default)(_this.data);
+      };
 
       _this.addGuiData = function (prop) {
         var _model$prop = model[prop],
@@ -90,7 +98,7 @@ exports.default = function (WrappedComponent) {
       };
 
       _this.componentDidMount = function () {
-        if (_this.container) {
+        if (_this.container && _this.hasData()) {
           // create dat.gui and add it to the dom
           _this.gui = new _dat2.default.GUI({ autoPlace: false });
           _this.container.appendChild(_this.gui.domElement);
@@ -102,6 +110,9 @@ exports.default = function (WrappedComponent) {
       };
 
       _this.render = function () {
+        if (!_this.hasData()) {
+          return _react2.default.createElement(WrappedComponent, _this.props);
+        }
         return _react2.default.createElement(
           'div',
           null,

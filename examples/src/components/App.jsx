@@ -27,9 +27,9 @@ class App extends Component {
 
     const NewComp2 = withDatGuiFromProps(MyComponent)
 
-
-    console.log(MyComponent.__docgenInfo)
     const NewComp3 = withDatGuiFromDocgen(MyComponent)
+
+    const WithoutProps = withDatGui(() => (<div>Without props</div>))
 
     return (
       <div>
@@ -39,6 +39,7 @@ class App extends Component {
         <NewComp2 name="From props" />
         <br /><br /><br /><br /><br /><br /><br /><br /><br />
         <NewComp3 name="From docgen" />
+        <WithoutProps />
       </div>
     )
   }

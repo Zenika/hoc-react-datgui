@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import forOwn from 'lodash/forOwn'
+import isEmpty from 'lodash/isEmpty'
 import dat from 'dat.gui/build/dat.gui'
 
 import { getDisplayName, mapModelToData, mapAllDataToState, mapDataToState } from './utils'
@@ -13,6 +14,8 @@ export default (WrappedComponent, model = {}) =>
       this.data = mapModelToData(model, props)
       this.state = mapAllDataToState(model, this.data)
     }
+
+    hasData = () => !isEmpty(this.data)
 
     addGuiData = (prop) => {
       const { type, values, min, max, step } = model[prop]
@@ -56,7 +59,7 @@ export default (WrappedComponent, model = {}) =>
     };
 
     componentDidMount = () => {
-      if (this.container) {
+      if (this.container && this.hasData()) {
         // create dat.gui and add it to the dom
         this.gui = new dat.GUI({ autoPlace: false })
         this.container.appendChild(this.gui.domElement)
@@ -66,6 +69,9 @@ export default (WrappedComponent, model = {}) =>
     };
 
     render = () => {
+      if (!this.hasData()) {
+        return <WrappedComponent {...this.props} />
+      }
       return (
         <div>
           <div
