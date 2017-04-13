@@ -1445,9 +1445,9 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-dat.gui@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/dat.gui/-/dat.gui-0.6.1.tgz#7c3d0a2ac2c570dafb61b91203fd7fe3171d6ac7"
+"dat.gui@github:dataarts/dat.gui":
+  version "0.6.4"
+  resolved "https://codeload.github.com/dataarts/dat.gui/tar.gz/191eb65b3af51519a6f36e00af2fcc596445b3f8"
 
 date-now@^0.1.4:
   version "0.1.4"
@@ -1534,16 +1534,9 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
-doctrine@1.3.x:
+doctrine@1.3.x, doctrine@^1.2.2:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.3.0.tgz#13e75682b55518424276f7c173783456ef913d26"
-  dependencies:
-    esutils "^2.0.2"
-    isarray "^1.0.0"
-
-doctrine@^1.2.2:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.5.0.tgz#379dce730f6166f76cefa4e6707a159b02c5a6fa"
   dependencies:
     esutils "^2.0.2"
     isarray "^1.0.0"
@@ -2231,11 +2224,13 @@ hawk@~3.1.3:
     hoek "2.x.x"
     sntp "1.x.x"
 
-"hoc-react-datgui@file:../":
-  version "0.1.0"
+hoc-react-datgui@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/hoc-react-datgui/-/hoc-react-datgui-0.0.1.tgz#7e9d411a37b0b9e4115331114b1c5e1efff30e5f"
   dependencies:
     babel-plugin-react-docgen "^1.4.2"
-    dat.gui "^0.6.1"
+    dat.gui dataarts/dat.gui
+    lodash "^4.17.4"
     react-docgen "^2.13.0"
 
 hoek@2.x.x:

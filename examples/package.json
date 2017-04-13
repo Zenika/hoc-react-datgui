@@ -34,6 +34,7 @@
     "webpack-dev-server": "~1.12.1"
   },
   "dependencies": {
+    "babel-plugin-react-docgen": "^1.4.2",
     "hoc-react-datgui": "^0.0.1",
     "react": "15.3.0",
     "react-dom": "15.3.0"
@@ -44,7 +45,8 @@
       "es2015",
       "react",
       "stage-0"
-    ]
+    ],
+    "plugins": ["react-docgen"]
   },
   "eslintConfig": {
     "parser": "babel-eslint",

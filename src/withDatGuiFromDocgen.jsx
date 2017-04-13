@@ -1,10 +1,10 @@
 import React from 'react'
 import withDatGui from './withDatGui'
-import { mapPropsToModel } from './utils'
+import { mapDocgenToModel } from './utils'
 
-export default (WrappedComponent) => {
+export default (WrappedComponent, docgenInfo) => {
   return (props) => {
-    const model = mapPropsToModel({ ...WrappedComponent.defaultProps, ...props })
+    const model = mapDocgenToModel(WrappedComponent.__docgenInfo || docgenInfo)
     const ComponentWithDatGui = withDatGui(WrappedComponent, model)
     return <ComponentWithDatGui {...props} />
   }

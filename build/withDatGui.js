@@ -84,7 +84,7 @@ exports.default = function (WrappedComponent) {
         };
         if (type === 'object' || type === 'array') {
           controller.onFinishChange(handleChange);
-        } else if (type !== 'function') {
+        } else if (type !== 'func') {
           controller.onChange(handleChange);
         }
       };

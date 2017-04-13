@@ -28,7 +28,7 @@ export const mapModelToData = (model, props) => {
       return propValue || defaultValue || 0
     } else if (type === 'boolean') {
       return propValue || defaultValue || true
-    } else if (type === 'function') {
+    } else if (type === 'func') {
       return propValue || defaultValue || (() => {})
     } else if (type === 'enum') {
       return propValue || defaultValue || []
@@ -50,3 +50,32 @@ export const mapAllDataToState = (model, data) => {
     return mapDataToState(data[prop], prop, type)
   })
 }
+
+const mapDocgenValues = (value, type) => {
+  /* eslint-disable no-eval */
+  if (type === 'object') {
+    return eval(`new Object(${value})`)
+  }
+  return eval(value)
+  /* eslint-enable no-eval */
+}
+
+const mapDocgenEnum = (values) => {
+  if (values) {
+    return values.map(v => mapDocgenValues(v.value))
+  }
+  return undefined
+}
+
+export const mapDocgenToModel = (docgenInfo) => {
+  return mapValues(
+    docgenInfo.props,
+    ({ type, defaultValue }) => ({
+      type: type.name,
+      values: mapDocgenEnum(type.value),
+      defaultValue: mapDocgenValues(defaultValue.value, type.name),
+    }),
+  )
+}
+
+
