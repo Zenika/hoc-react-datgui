@@ -3,7 +3,7 @@ import forOwn from 'lodash/forOwn'
 import isEmpty from 'lodash/isEmpty'
 import dat from 'dat.gui/build/dat.gui'
 
-import { getDisplayName, mapModelToData, mapAllDataToState, mapDataToState } from './utils'
+import { getDisplayName, mapModelToData, mapAllDataToState, mapDataToState } from './mappers/model'
 
 export default (WrappedComponent, model = {}) =>
   class extends Component {
@@ -11,7 +11,7 @@ export default (WrappedComponent, model = {}) =>
 
     constructor(props) {
       super(props)
-      this.data = mapModelToData(model, props)
+      this.data = mapModelToData(model, { ...WrappedComponent.defaultProps, ...props })
       this.state = mapAllDataToState(model, this.data)
     }
 
@@ -53,7 +53,7 @@ export default (WrappedComponent, model = {}) =>
       }
       if (type === 'object' || type === 'array') {
         controller.onFinishChange(handleChange)
-      } else if (type !== 'func') {
+      } else if (type !== 'function') {
         controller.onChange(handleChange)
       }
     };

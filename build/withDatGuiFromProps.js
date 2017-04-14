@@ -14,13 +14,15 @@ var _withDatGui = require('./withDatGui');
 
 var _withDatGui2 = _interopRequireDefault(_withDatGui);
 
-var _utils = require('./utils');
+var _props = require('./mappers/props');
+
+var _props2 = _interopRequireDefault(_props);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (WrappedComponent) {
   return function (props) {
-    var model = (0, _utils.mapPropsToModel)(_extends({}, WrappedComponent.defaultProps, props));
+    var model = (0, _props2.default)(_extends({}, WrappedComponent.defaultProps, props));
     var ComponentWithDatGui = (0, _withDatGui2.default)(WrappedComponent, model);
     return _react2.default.createElement(ComponentWithDatGui, props);
   };

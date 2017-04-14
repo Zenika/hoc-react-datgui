@@ -21,7 +21,9 @@ MyComponent.defaultProps = {
   address: { numero: 0, rue: 'rue du cours' },
   books: ['Book1', 'Book2'],
   onBoom: () => alert('test'),
+  symbol: Symbol('testSymb'),
   color: '#FFAE23',
+  custom: 'matchme',
 }
 
 MyComponent.propTypes = {
@@ -33,6 +35,26 @@ MyComponent.propTypes = {
   books: PropTypes.array,
   onBoom: PropTypes.func,
   color: PropTypes.string,
+  symbol: PropTypes.symbol,
+  node: PropTypes.node,
+  element: PropTypes.element,
+  instanceOf: PropTypes.instanceOf(Object),
+  arrayOf: PropTypes.arrayOf(PropTypes.number),
+  objectOf: PropTypes.objectOf(PropTypes.number),
+  shape: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number,
+  }),
+  any: PropTypes.any,
+  oneOfType: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  custom: (props, propName) => {
+    if (!/matchme/.test(props[propName])) {
+      return new Error('error')
+    }
+  },
 }
 
 export default MyComponent

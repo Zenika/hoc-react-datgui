@@ -36,6 +36,7 @@
   "dependencies": {
     "babel-plugin-react-docgen": "^1.4.2",
     "hoc-react-datgui": "^0.0.1",
+    "prop-types": "^15.5.8",
     "react": "15.3.0",
     "react-dom": "15.3.0"
   },
@@ -46,7 +47,9 @@
       "react",
       "stage-0"
     ],
-    "plugins": ["react-docgen"]
+    "plugins": [
+      "react-docgen"
+    ]
   },
   "eslintConfig": {
     "parser": "babel-eslint",

@@ -22,7 +22,7 @@ var _dat = require('dat.gui/build/dat.gui');
 
 var _dat2 = _interopRequireDefault(_dat);
 
-var _utils = require('./utils');
+var _model = require('./mappers/model');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -87,12 +87,12 @@ exports.default = function (WrappedComponent) {
         var handleChange = function handleChange(value) {
           if (_this.state[prop] !== value) {
             _this.data[prop] = value;
-            _this.setState(_defineProperty({}, prop, (0, _utils.mapDataToState)(value, prop, type)));
+            _this.setState(_defineProperty({}, prop, (0, _model.mapDataToState)(value, prop, type)));
           }
         };
         if (type === 'object' || type === 'array') {
           controller.onFinishChange(handleChange);
-        } else if (type !== 'func') {
+        } else if (type !== 'function') {
           controller.onChange(handleChange);
         }
       };
@@ -126,11 +126,11 @@ exports.default = function (WrappedComponent) {
         );
       };
 
-      _this.data = (0, _utils.mapModelToData)(model, props);
-      _this.state = (0, _utils.mapAllDataToState)(model, _this.data);
+      _this.data = (0, _model.mapModelToData)(model, _extends({}, WrappedComponent.defaultProps, props));
+      _this.state = (0, _model.mapAllDataToState)(model, _this.data);
       return _this;
     }
 
     return _class;
-  }(_react.Component), _class.displayName = 'DatGui(' + (0, _utils.getDisplayName)(WrappedComponent) + ')', _temp;
+  }(_react.Component), _class.displayName = 'DatGui(' + (0, _model.getDisplayName)(WrappedComponent) + ')', _temp;
 };
