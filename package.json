@@ -1,6 +1,6 @@
 {
   "name": "hoc-react-datgui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "HOC adding a dat.GUI plugged to React.Component props",
   "main": "build/index.js",
   "author": "Benjamin Petetot <benjamin.petetot@zenika.com>",

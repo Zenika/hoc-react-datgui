@@ -51,7 +51,7 @@ var mapModelToData = exports.mapModelToData = function mapModelToData(model, pro
     } else if (type === 'number' || type === 'slider') {
       return propValue || 0;
     } else if (type === 'boolean') {
-      return propValue || true;
+      return propValue === false ? propValue : propValue || true;
     } else if (type === 'function') {
       return propValue || function () {};
     } else if (type === 'enum') {

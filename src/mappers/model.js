@@ -37,7 +37,7 @@ export const mapModelToData = (model, props) => {
     } else if (type === 'number' || type === 'slider') {
       return propValue || 0
     } else if (type === 'boolean') {
-      return propValue || true
+      return propValue === false ? propValue : (propValue || true)
     } else if (type === 'function') {
       return propValue || (() => {})
     } else if (type === 'enum') {
